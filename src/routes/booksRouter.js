@@ -1,5 +1,6 @@
 import express from "express";
 import { bookModel } from "../model/book.js";
+import { MessageModel } from "../model/message.js";
 import { storage, fileFilter } from "../middleware/file.js";
 import multer from "multer";
 
@@ -64,9 +65,13 @@ router.get("/:id", async (req, res) => {
         });
     }
 
+    const messages = await MessageModel.find({bookId: id}).select('-__v');
+    console.log(messages);
+
     res.render("books/view", {
         title: "Просмотр книги",
-        book: book
+        book: book,
+        messages: messages
     });
 
   } catch (e) {
@@ -200,6 +205,11 @@ router.post(
 
 router.post("/delete/:id", async (req, res) => {
   const { id } = req.params;
+
+  // socket.join(id);
+  // socket.on('disconnect', () => {
+  //   console.log(`Socket disconnect: ${id}`);
+  // });
 
   try {
     await bookModel.deleteOne({ _id: id });
