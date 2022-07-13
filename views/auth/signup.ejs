@@ -1,0 +1,24 @@
+<form method="POST">
+    <div>
+        <label>Логин:</label>
+        <input type="text" name="username" /><br />
+    </div>
+    <div>
+        <label>Отображаемое имя:</label>
+        <input type="text" name="displayName" /><br />
+    </div>
+    <div>
+        <label>Пароль:</label>
+        <input type="password" name="password" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" name="email" /> <br />
+    </div>
+    <div>
+        <input type="submit" value="Зарегистрироваться" />
+    </div>
+</form>
+<% if (message) { %>
+    <p><%= message %></p>
+    <% } %>

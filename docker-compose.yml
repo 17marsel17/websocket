@@ -1,0 +1,14 @@
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27018:27017
+    volumes:
+      - ./data/db:/data/db
+  auth:
+    build: .
+    volumes:
+      - ./load:/app/load
+      - ./logs:/app/logs
+    ports:
+      - 3030:3030
