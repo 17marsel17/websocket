@@ -23,7 +23,8 @@ export const initComments = function(server) {
             const newMessage = new MessageModel({
                 author: msg.username,
                 message: msg.text,
-                bookId: bookId
+                bookId: bookId,
+                date: new Date()
             });
 
             try {
@@ -36,6 +37,10 @@ export const initComments = function(server) {
             console.log(msg);
             socket.to(bookId).emit('comments', msg);
             socket.emit('comments', msg);
+        });
+
+        socket.on('disconnect', () => {
+            console.log(`Socket disconnected: ${id}`);
         });
     });
 };

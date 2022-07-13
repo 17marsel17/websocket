@@ -1,0 +1,19 @@
+.media-body .author {
+    display: inline-block;
+    font-size: 1rem;
+    color: #000;
+    font-weight: 700;
+  }
+  .media-body .metadata {
+    display: inline-block;
+    margin-left: .5rem;
+    color: #777;
+    font-size: .8125rem;
+  }
+  .devide {
+    padding: 0px 4px;
+    font-size: 0.9em;
+  }
+  .media-text {
+    margin-bottom: 0.25rem;
+  }

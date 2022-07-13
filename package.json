@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index"
+    "start": "node src/index",
+    "lint:ejs": "ejslint views/books/view.ejs"
   },
   "keywords": [],
   "author": "",

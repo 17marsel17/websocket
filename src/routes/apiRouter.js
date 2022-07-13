@@ -11,6 +11,8 @@ router.get("/:id", async (req, res) => {
   try {
     const book = await bookModel.findById(id).select("-__v");
 
+    const messages = await MessageModel.find({bookId: id}).select('-__v');
+
     res.json(book);
   } catch (e) {
     res.status(404);

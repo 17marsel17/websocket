@@ -12,8 +12,6 @@ router.get("/:id/download", async (req, res) => {
   try {
     const book = await bookModel.findById(id).select('-__v');
 
-    console.log(book);
-
     if (!book) {
         res.render("error/404", {
         title: "404 | страница не найдена",
@@ -66,7 +64,6 @@ router.get("/:id", async (req, res) => {
     }
 
     const messages = await MessageModel.find({bookId: id}).select('-__v');
-    console.log(messages);
 
     res.render("books/view", {
         title: "Просмотр книги",

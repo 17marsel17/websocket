@@ -30,6 +30,8 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded());
 app.use('/load', express.static(path.join(__dirname, '..', 'load')));
+app.use(express.static('public'));
+
 app.use(session({ secret: 'SECRET', resave: true, saveUninitialized: true }));
 
 app.use(logger);

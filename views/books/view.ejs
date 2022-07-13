@@ -31,28 +31,26 @@
 </div>
 
 <div class="container">
+
     <% if (messages.length) { %>
-        <table class="table table-striped table-sm  mt-3">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Автор</th>
-                <th scope="col">Комментарий</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-    
+        <h2>Комментарии <%= messages.length %></h2>
+        <div>
+            <ul class="media-list">
                 <% messages.map((el, idx) => {  %>
-                    <tr>
-                        <th scope="row"><%= idx +1 %></th>
-                        <td><%= el.author %></td>
-                        <td><%= el.message %></td>
-                    </tr>
+                            <li class="media">
+                              <div class="media-body">
+                                <div class="media-heading">
+                                  <div class="author"><%= el.author %></div>
+                                    <div class="metadata">
+                                      <span class="date"><%= el.date %></span>
+                                    </div>
+                                  </div>
+                                  <div class="media-text text-justify"><%= el.message %></div>                         
+                                </div>
+                            </li>                      
                 <% }) %>
-    
-            </tbody>
-        </table>
+            </ul>
+        </div>  
     <% } %>    
 
     <div class="row">
