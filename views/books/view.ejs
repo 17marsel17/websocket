@@ -106,12 +106,17 @@
 
     const getTmp = (msg) => {
         return `
-                <div class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <small>${msg.username}</small>
-                    </div>
-                    <p class="mb-1">${msg.text}</p>
-                </div>
+                <li class="media">
+                              <div class="media-body">
+                                <div class="media-heading">
+                                  <div class="author">${msg.username}</div>
+                                    <div class="metadata">
+                                      <span class="date">${new Date()}</span>
+                                    </div>
+                                  </div>
+                                  <div class="media-text text-justify">${msg.text}</div>                         
+                                </div>
+                </li>    
         `;
     };
 

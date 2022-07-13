@@ -109,8 +109,6 @@ router.post(
       fileName,
       fileBook
     });
-
-    console.log(newBook);
     
     try {
         await newBook.save();
@@ -186,8 +184,6 @@ router.post(
             },
           }
         );
-
-        console.log('update ', book);
   
         res.redirect(`/api/books/${id}`);
       } catch (e) {
@@ -203,13 +199,10 @@ router.post(
 router.post("/delete/:id", async (req, res) => {
   const { id } = req.params;
 
-  // socket.join(id);
-  // socket.on('disconnect', () => {
-  //   console.log(`Socket disconnect: ${id}`);
-  // });
-
   try {
     await bookModel.deleteOne({ _id: id });
+
+    await MessageModel.delete({ bookId: id});
 
     res.redirect("/api/books");
   } catch (e) {
